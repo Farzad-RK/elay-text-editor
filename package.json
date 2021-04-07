@@ -4,6 +4,10 @@
   "description": "Elay text editor is based on the classic version of CKEditor with customized plugins",
   "main": "src/index.js",
   "files": ["build/**/*"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Farzad-rh/elay-text-editor.git"
+  },
   "dependencies": {
     "@ckeditor/ckeditor5-alignment": "^27.0.0",
     "@ckeditor/ckeditor5-autoformat": "^27.0.0",
