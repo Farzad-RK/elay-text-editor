@@ -11,7 +11,9 @@ module.exports = {
     // https://webpack.js.org/configuration/output/
     output: {
         path: path.resolve( __dirname, 'build' ),
-        filename: 'bundle.js'
+        library: 'ClassicEditor',
+        libraryExport: 'default',
+        filename: 'editor.js'
     },
     devServer: {
         contentBase: [
@@ -58,9 +60,6 @@ module.exports = {
             }
         ]
     },
-
-    // Useful for debugging.
-    devtool: 'source-map',
 
     // By default webpack logs warnings if the bundle is bigger than 200kb.
     performance: { hints: false }

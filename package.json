@@ -1,6 +1,6 @@
 {
   "name": "elay-text-editor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Elay text editor is based on the classic version of CKEditor with customized plugins",
   "main": "src/index.js",
   "files": [
@@ -52,7 +52,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open --mode development",
     "analyze": "webpack --json > stats.json&&yarn webpack-bundle-analyzer stats.json\n",
-    "build": "webpack --mode production&&rm build/index.html build/bundle.js.map"
+    "build": "webpack --mode production&&rm build/index.html"
   },
   "author": "Elay Automation Ltd.",
   "license": "ISC"

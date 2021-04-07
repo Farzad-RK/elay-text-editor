@@ -1,4 +1,4 @@
-import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
@@ -24,88 +24,83 @@ import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64u
 import Font from '@ckeditor/ckeditor5-font/src/font';
 import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
 import MergeTags from '../src/plugins/merge-tags'
-
 import {renderFontOption} from "./utils";
 
-ClassicEditor
-    .create( document.querySelector( '#editor' ), {
-        plugins: [
-            Essentials,
-            Autoformat,
-            Font,
-            Bold,
-            Italic,
-            BlockQuote,
-            Heading,
-            Image,
-            ImageCaption,
-            ImageStyle,
-            ImageToolbar,
-            ImageUpload,
-            ImageResize,
-            Indent,
-            IndentBlock,
-            Link,
-            List,
-            MediaEmbed,
-            Paragraph,
-            PasteFromOffice,
-            TextTransformation,
-            Alignment,
-            Base64UploadAdapter,
-            HtmlEmbed,
-            MergeTags
+export default class ClassicEditor extends ClassicEditorBase {}
+
+ClassicEditor.builtinPlugins = [
+    Essentials,
+    Autoformat,
+    Font,
+    Bold,
+    Italic,
+    BlockQuote,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    ImageResize,
+    Indent,
+    IndentBlock,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    TextTransformation,
+    Alignment,
+    Base64UploadAdapter,
+    HtmlEmbed,
+    MergeTags
+]
+
+ClassicEditor.defaultConfig = {
+    toolbar: {
+        shouldNotGroupWhenFull: true,
+        items: [
+            'heading',
+            'MergeTags',
+            '|',
+            'fontSize',
+            'fontFamily',
+            'fontColor',
+            '|',
+            'bold',
+            'italic',
+            'link',
+            'bulletedList',
+            'numberedList',
+            '|',
+            'alignment',
+            'outdent',
+            'indent',
+            '|',
+            'uploadImage',
+            'blockQuote',
+            'mediaEmbed',
+            'htmlEmbed',
+            '|',
+            'undo',
+            'redo'
+        ]
+    },
+    image: {
+        toolbar: [ 'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
+        styles: [
+            'full',
+            'alignLeft',
+            'alignRight'
+        ]
+    },
+    fontFamily: {
+        supportAllValues: true
+    },
+    fontSize: {
+        options: [
+            ...[8,9,10,12,14,18,24,30,36].map(fontSize=>renderFontOption(fontSize))
         ],
-        toolbar: {
-            shouldNotGroupWhenFull: true,
-            items: [
-                'heading',
-                'MergeTags',
-                '|',
-                'fontSize',
-                'fontFamily',
-                'fontColor',
-                '|',
-                'bold',
-                'italic',
-                'link',
-                'bulletedList',
-                'numberedList',
-                '|',
-                'alignment',
-                'outdent',
-                'indent',
-                '|',
-                'uploadImage',
-                'blockQuote',
-                'mediaEmbed',
-                'htmlEmbed',
-                '|',
-                'undo',
-                'redo'
-            ]
-        },
-        image: {
-            toolbar: [ 'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
-            styles: [
-                'full',
-                'alignLeft',
-                'alignRight'
-            ]
-        },
-        fontFamily: {
-            supportAllValues: true
-        },
-        fontSize: {
-            options: [
-                ...[8,9,10,12,14,18,24,30,36].map(fontSize=>renderFontOption(fontSize))
-            ],
-            supportAllValues: true
-        },
-    } )
-    .then( editor => {
-        console.log( 'Editor was initialized', editor );
-    } )
-    .catch( error => {
-        console.error( error.stack );
-    } );
+        supportAllValues: true
+    },
+}
