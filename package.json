@@ -3,7 +3,9 @@
   "version": "1.0.1",
   "description": "Elay text editor is based on the classic version of CKEditor with customized plugins",
   "main": "src/index.js",
-  "files": ["build/**/*"],
+  "files": [
+    "build/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Farzad-rh/elay-text-editor.git"
@@ -36,17 +38,20 @@
     "@ckeditor/ckeditor5-ui": "^27.0.0",
     "@webpack-cli/serve": "^1.3.1",
     "html-webpack-plugin": "^5.3.1",
+    "lodash-webpack-plugin": "^0.11.6",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^4.0.1",
     "style-loader": "^1.2.1",
     "terser-webpack-plugin": "^3.0.2",
     "webpack": "^5.20.0",
+    "webpack-bundle-analyzer": "^4.4.0",
     "webpack-cli": "^4.3.0",
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open --mode development",
+    "analyze": "webpack --json > stats.json&&yarn webpack-bundle-analyzer stats.json\n",
     "build": "webpack --mode production&&rm build/index.html build/bundle.js.map"
   },
   "author": "Elay Automation Ltd.",
