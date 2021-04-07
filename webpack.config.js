@@ -3,7 +3,6 @@
 const path = require( 'path' );
 const { styles } = require( '@ckeditor/ckeditor5-dev-utils' );
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CompressionPlugin = require("compression-webpack-plugin");
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 module.exports = {
     // https://webpack.js.org/configuration/entry-context/
@@ -28,7 +27,6 @@ module.exports = {
             template: path.join(__dirname, 'src/index.html'),
         }),
         new LodashModuleReplacementPlugin(),
-        new CompressionPlugin(),
     ],
     module: {
         rules: [
