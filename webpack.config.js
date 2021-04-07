@@ -13,6 +13,7 @@ module.exports = {
         path: path.resolve( __dirname, 'build' ),
         library: 'ClassicEditor',
         libraryExport: 'default',
+        libraryTarget: 'umd',
         filename: 'editor.js'
     },
     devServer: {
