@@ -1,6 +1,6 @@
 {
   "name": "elay-text-editor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Elay text editor is based on the classic version of CKEditor with customized plugins",
   "main": "src/index.js",
   "files": [
@@ -37,6 +37,7 @@
     "@ckeditor/ckeditor5-theme-lark": "^27.0.0",
     "@ckeditor/ckeditor5-ui": "^27.0.0",
     "@webpack-cli/serve": "^1.3.1",
+    "compression-webpack-plugin": "^7.1.2",
     "html-webpack-plugin": "^5.3.1",
     "lodash-webpack-plugin": "^0.11.6",
     "postcss-loader": "^3.0.0",
