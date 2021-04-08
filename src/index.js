@@ -58,7 +58,6 @@ ClassicEditor.builtinPlugins = [
 
 ClassicEditor.defaultConfig = {
     toolbar: {
-        shouldNotGroupWhenFull: true,
         items: [
             'heading',
             'MergeTags',
