@@ -2,7 +2,7 @@
 
 const path = require( 'path' );
 const { styles } = require( '@ckeditor/ckeditor5-dev-utils' );
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 module.exports = {
     // https://webpack.js.org/configuration/entry-context/
     entry: './src/index.js',
@@ -10,7 +10,7 @@ module.exports = {
     // https://webpack.js.org/configuration/output/
     output: {
         path: path.resolve( __dirname, 'build' ),
-        library: 'ClassicEditor',
+        library: ['ClassicEditor'],
         libraryExport: 'default',
         libraryTarget: 'umd',
         filename: 'editor.js'
@@ -20,12 +20,9 @@ module.exports = {
             path.resolve( __dirname, 'build' ),
         ],
     },
-    // plugins: [
-    //     new HtmlWebpackPlugin({
-    //         filename: path.resolve(__dirname, 'build/index.html'),
-    //         template: path.join(__dirname, 'src/index.html'),
-    //     }),
-    // ],
+    plugins: [
+        new CompressionPlugin()
+    ],
     module: {
         rules: [
             {
