@@ -1,6 +1,6 @@
 {
   "name": "elay-text-editor",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Elay text editor is based on the classic version of CKEditor with customized plugins",
   "main": "src/index.js",
   "files": [
